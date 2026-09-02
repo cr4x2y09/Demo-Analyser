@@ -2,6 +2,7 @@
 demoer/
 *.dem
 *.parquet
+parsed/
 
 # Python
 __pycache__/
