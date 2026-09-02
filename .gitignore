@@ -1,0 +1,15 @@
+# Demo-filer og parsede data -- for store/for mange til git, og slettes aldrig lokalt
+demoer/
+*.dem
+*.parquet
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
