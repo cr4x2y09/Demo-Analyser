@@ -6,9 +6,11 @@ Login håndteres af Cloudflare Access foran hele siden (se CLAUDE.md) --
 denne app implementerer bevidst IKKE sin egen brugerhåndtering.
 
 Status: "Mønstre" viser rigtige, statistisk validerede fund fra
-analyse/moenstre_runder.py (runde-niveau: momentum, pistol-effekt) -- men
-IKKE de spatiale mønstre CLAUDE.md beskriver (de kræver parseren, som
-endnu ikke har kunnet køre). "Grundopstilling" venter stadig på det.
+analyse/moenstre_runder.py (runde-niveau: momentum, pistol-effekt).
+"Grundopstilling" viser klyngede positionsmønstre fra
+analyse/opstillinger.py (kræver parsede demoer -- se den fil for
+forenklinger). Spatiale mønstre ud over grundopstilling ("smoker de Ramp,
+roterer B-anchoren") er stadig ikke skrevet.
 
 Kør (fra projektroden):
     pip install -r web/requirements.txt
@@ -30,6 +32,7 @@ ROD = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROD))  # så "analyse.*" kan importeres uanset hvorfra streamlit køres
 
 from analyse.moenstre_runder import kør_for_hold  # noqa: E402
+from analyse.opstillinger import kør_for_hold_map as opstillinger_for_hold_map  # noqa: E402
 from analyse.roster import laes_kampstats as laes_kampstats_raa, filtrer_paa_roster  # noqa: E402
 
 MANIFEST_STI = ROD / "manifest.jsonl"
@@ -175,6 +178,19 @@ def esc(tekst: str) -> str:
     return tekst.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+@st.cache_data(ttl=600, show_spinner="Analyserer grundopstillinger (kan tage lidt tid, hvis en demo skal parses for første gang)...")
+def grundopstillinger(hold: str, map_navn: str) -> dict[str, list[dict]]:
+    """CT- og T-side opstillinger for holdet på dette map, se
+    analyse/opstillinger.py. Cachet længere (10 min) end resten af siden,
+    fordi parsing af en ny demo kan tage adskillige minutter -- selve
+    parse-resultatet cachet permanent som Parquet på disk (se
+    parser/parse_demo.py), så det kun er langsomt allerførste gang."""
+    return {
+        "ct": opstillinger_for_hold_map(hold, map_navn, "ct", sekunder=20),
+        "t": opstillinger_for_hold_map(hold, map_navn, "t", sekunder=20),
+    }
+
+
 @st.cache_data(ttl=60)
 def spillerprofiler(hold: str) -> list[dict]:
     """Rigtige, aggregerede skydetal fra kampstats.jsonl for holdets
@@ -252,9 +268,11 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
           </div>
           <div class="warn">
             <b>Delvis analyse.</b> Downloaderen har fundet {len(kampe)} kampe med
-            {esc(hold)} på {esc(map_navn.capitalize())} i {esc(liga)}. Veto, spillerstats
-            og runde-mønstre (momentum/pistol) er rigtige og statistisk validerede.
-            Grundopstilling og spatiale mønstre venter på parseren.
+            {esc(hold)} på {esc(map_navn.capitalize())} i {esc(liga)}. Veto, spillerstats,
+            runde-mønstre (momentum/pistol) og grundopstilling er rigtige og statistisk
+            validerede -- men bygger typisk på for få kampe endnu til at vise noget.
+            Spatiale mønstre ud over grundopstilling ("smoker de Ramp, roterer B-anchoren")
+            er ikke skrevet endnu.
           </div>
         </header>
         """
@@ -302,12 +320,35 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
     dele.append("</section>")
 
     dele.append('<section><h2>Grundopstilling</h2>')
-    dele.append('<p class="lede">Kræver parseren -- ikke bygget endnu.</p>')
     dele.append(
-        '<div class="warn">Vises når parseren har kørt for disse kampe og '
-        "spillerpositioner er udtrukket (kræver awpy, som endnu ikke har kunnet "
-        "køre på udviklingsmaskinen -- se parser/parse_demo.py).</div></section>"
+        '<p class="lede">Opstillinger klynges efter hvilke callouts holdets nuværende '
+        "roster (SteamID64-filtreret) står i 20 sekunder inde i runden. Kræver mindst "
+        "4 identiske forekomster for at blive vist. Se analyse/opstillinger.py.</p>"
     )
+    opstillinger = grundopstillinger(hold, map_navn)
+    alle_setups = opstillinger.get("ct", []) + opstillinger.get("t", [])
+    if alle_setups:
+        for s in alle_setups:
+            kontekst_str = ", ".join(f"{k}: {v}" for k, v in sorted(s["kontekst"].items()))
+            dele.append(
+                f"""<article class="find ok">
+                <h3>{esc(s['navn'])}</h3>
+                <div class="body">
+                  <div class="stat">
+                    <p class="frac">{s['antal']} <small>af</small> {s['total_runder']}</p>
+                    <div class="scale"><span>{s['andel']:.0%}</span></div>
+                  </div>
+                  <p class="note"><b>{esc(', '.join(s['pladser']))}</b><br>
+                  Kontekst: {esc(kontekst_str) if kontekst_str else '—'}</p>
+                </div></article>"""
+            )
+    else:
+        dele.append(
+            '<div class="warn">Ingen opstillinger over tærsklen endnu -- kræver flere '
+            "hentede og parsede demoer for dette hold på dette map (mindst 4 identiske "
+            "positionsmønstre). Se analyse/opstillinger.py.</div>"
+        )
+    dele.append("</section>")
 
     dele.append('<section><h2>Mønstre</h2>')
     dele.append(
@@ -360,9 +401,10 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
         """
         <footer>
           <h2>Om denne side</h2>
-          <p>Kampene ovenfor kommer direkte fra downloaderens manifest
-          (<code>manifest.jsonl</code>). Ingen af tallene er analyseret endnu --
-          det er næste skridt.</p>
+          <p>Kamplisten ovenfor kommer direkte fra downloaderens manifest
+          (<code>manifest.jsonl</code>), uden analyse. Veto, spillerstats,
+          runde-mønstre og grundopstilling er analyseret -- se hver sektions
+          egen note om hvad der (endnu) ikke er dækket.</p>
         </footer>
         </div>
         """
