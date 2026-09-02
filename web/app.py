@@ -328,19 +328,25 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
     opstillinger = grundopstillinger(hold, map_navn)
     alle_setups = opstillinger.get("ct", []) + opstillinger.get("t", [])
     if alle_setups:
+        KONTEKST_NAVN = {
+            "pistol": "pistol", "efter_sejr": "efter sejr",
+            "efter_tab": "efter tab", "ukendt": "øvrige",
+        }
         for s in alle_setups:
-            kontekst_str = ", ".join(f"{k}: {v}" for k, v in sorted(s["kontekst"].items()))
+            chips = "".join(f'<span class="chip">{esc(p)}</span>' for p in s["pladser"])
+            kontekst_str = " · ".join(
+                f"<b>{v}</b> {KONTEKST_NAVN.get(k, k)}"
+                for k, v in sorted(s["kontekst"].items(), key=lambda kv: -kv[1])
+            )
             dele.append(
-                f"""<article class="find ok">
-                <h3>{esc(s['navn'])}</h3>
-                <div class="body">
-                  <div class="stat">
-                    <p class="frac">{s['antal']} <small>af</small> {s['total_runder']}</p>
-                    <div class="scale"><span>{s['andel']:.0%}</span></div>
-                  </div>
-                  <p class="note"><b>{esc(', '.join(s['pladser']))}</b><br>
-                  Kontekst: {esc(kontekst_str) if kontekst_str else '—'}</p>
-                </div></article>"""
+                f"""<article class="setup">
+                <div class="setup-head">
+                  <h3>{esc(s['navn'])}</h3>
+                  <p class="pct">{s['andel']:.0%} <small>{s['antal']} af {s['total_runder']}</small></p>
+                </div>
+                <div class="chips">{chips}</div>
+                <p class="ctx">{kontekst_str or '—'}</p>
+                </article>"""
             )
     else:
         dele.append(
@@ -476,7 +482,6 @@ def main() -> None:
         @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap');
         .wrap, .wrap *{font-family:Archivo,system-ui,sans-serif!important}
         header[data-testid="stHeader"]{display:none}
-        footer{visibility:hidden}
         .block-container{padding-top:2.5rem;padding-bottom:3rem}
         /* sidebar: match rapportens mørke tema i stedet for Streamlits graa standard */
         [data-testid="stSidebar"]{background:var(--panel);border-right:1px solid var(--rule)}
