@@ -398,16 +398,14 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
     dele.append("</section>")
 
     dele.append(
-        """
-        <footer>
-          <h2>Om denne side</h2>
-          <p>Kamplisten ovenfor kommer direkte fra downloaderens manifest
-          (<code>manifest.jsonl</code>), uden analyse. Veto, spillerstats,
-          runde-mønstre og grundopstilling er analyseret -- se hver sektions
-          egen note om hvad der (endnu) ikke er dækket.</p>
+        """<footer>
+        <h2>Om denne side</h2>
+        <p>Kamplisten ovenfor kommer direkte fra downloaderens manifest
+        (<code>manifest.jsonl</code>), uden analyse. Veto, spillerstats,
+        runde-mønstre og grundopstilling er analyseret -- se hver sektions
+        egen note om hvad der (endnu) ikke er dækket.</p>
         </footer>
-        </div>
-        """
+        </div>"""
     )
     return "\n".join(dele)
 
@@ -456,6 +454,45 @@ def main() -> None:
     st.set_page_config(page_title="Modstanderrapport", layout="wide")
     if CSS_STI.exists():
         st.markdown(f"<style>{CSS_STI.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
+
+    # rapport.css forudsætter Archivo-fonten, men linker den ikke selv --
+    # byg_standalone_html() gør det for offline-downloadet, men den LIVE
+    # side manglede den, og faldt derfor stille tilbage til system-sans.
+    # Skjuler også Streamlits eget dev-værktøjslinje (Deploy/hamburger) og
+    # gør sidebaren mørk, så det ligner et rigtigt værktøj og ikke en
+    # Streamlit-demo. Se CLAUDE.md: "Rapportens udseende".
+    #
+    # OBS 1: st.markdown's HTML-blok-genkendelse (CommonMark) afbrydes af
+    # den FØRSTE tomme linje i en blok der ikke starter med <style>/<script>
+    # -- derfor INGEN tomme linjer inde i denne blok.
+    # OBS 2: en <link rel="stylesheet"> indsat via unsafe_allow_html bliver
+    # aldrig hentet (Streamlit renderer det midt i <body>, ikke i <head>,
+    # og React's dangerouslySetInnerHTML udløser ikke ressource-hentning for
+    # den slags injicerede tags). @import inde i selve <style>-blokken
+    # virker derimod, fordi <style>-tagget allerede er bekræftet virkende
+    # (resten af reglerne herunder anvendes jo).
+    st.markdown(
+        """<style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap');
+        .wrap, .wrap *{font-family:Archivo,system-ui,sans-serif!important}
+        header[data-testid="stHeader"]{display:none}
+        footer{visibility:hidden}
+        .block-container{padding-top:2.5rem;padding-bottom:3rem}
+        /* sidebar: match rapportens mørke tema i stedet for Streamlits graa standard */
+        [data-testid="stSidebar"]{background:var(--panel);border-right:1px solid var(--rule)}
+        [data-testid="stSidebar"] > div{padding-top:1.5rem}
+        [data-testid="stSidebar"] h3{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--dim);margin:0 0 18px}
+        [data-testid="stSidebar"] label p{font-size:12.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--dim)}
+        [data-testid="stSidebar"] [data-baseweb="select"] > div{background:var(--bg)!important;border-color:var(--rule)!important;border-radius:2px!important}
+        [data-testid="stSidebar"] [data-baseweb="select"]:hover > div{border-color:var(--hot)!important}
+        [data-testid="stSidebar"] [data-testid="stCaptionContainer"]{color:var(--dim)}
+        [data-testid="stSidebar"] hr{border-color:var(--rule)}
+        /* download-knap: matcher rapportens outline-stil i stedet for Streamlits standardknap */
+        .stDownloadButton button{background:transparent!important;color:var(--hot)!important;border:1px solid var(--hot)!important;border-radius:2px!important;font-weight:600!important}
+        .stDownloadButton button:hover{background:var(--hot)!important;color:#171112!important}
+        </style>""",
+        unsafe_allow_html=True,
+    )
 
     kampe = laes_manifest()
 

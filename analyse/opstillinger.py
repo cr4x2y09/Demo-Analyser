@@ -17,10 +17,15 @@ ved MÆNGDEN af besatte callouts (fx {"Heaven", "BombsiteA", "CTSpawn",
 "Squeaky", "Control"}), ikke ved hvilken SPECIFIK spiller der står hvor.
 Det fanger "formen" af opstillingen -- det IGL'erne selv sagde de ikke kan
 overskue -- uden at kræve spiller-til-position-tracking på tværs af
-runder og kampe. To runder med præcis samme callout-mængde tælles som
-samme opstilling; en runde der afviger med bare ét enkelt callout tælles
-som en ANDEN opstilling. Det er bevidst strengt for en første udgave --
-se ÅBNE punkter nederst.
+runder og kampe.
+
+Matchning er IKKE præcis: to callout-mængder tæller som samme opstilling,
+hvis de er højst MAKS_SYMMETRISK_FORSKEL forskellige (se _klyng()). Ren
+præcis matchning blev testet mod 6 rigtige ECSTATIC-kampe på Ancient og
+fandt intet som helst over tærsklen -- selv et hold der reelt holder
+samme opstilling, varierer med ét callout fra runde til runde (en spiller
+der lige er trukket et skridt), og et rent eksakt match ser hver variation
+som en ny, isoleret opstilling. Se ÅBNE punkter nederst.
 
 Brug:
     python -m analyse.opstillinger "MASQ" de_nuke --side ct --sekunder 20
@@ -65,10 +70,11 @@ def _manifest_kampe() -> list[dict]:
     return ud
 
 
-def dem_stier_for_hold_map(hold_navn: str, map_navn: str) -> list[Path]:
-    """.dem-stier for alle kampe hvor holdet mødtes på map_navn, og filen
-    rent faktisk findes på disken (den er git-ignoreret og hentes ikke
-    automatisk herfra)."""
+def dem_stier_for_hold_map(hold_navn: str, map_navn: str) -> list[tuple[str, Path]]:
+    """(tidspunkt, .dem-sti) for alle kampe hvor holdet mødtes på map_navn,
+    og filen rent faktisk findes på disken (den er git-ignoreret og hentes
+    ikke automatisk herfra). Tidspunktet bruges til at klynge kronologisk
+    (se _klyng()), samme princip som holdout-splittet i terskler.py."""
     ud = []
     for kamp in _manifest_kampe():
         if hold_navn not in (kamp["hold_a"], kamp["hold_b"]):
@@ -78,7 +84,7 @@ def dem_stier_for_hold_map(hold_navn: str, map_navn: str) -> list[Path]:
                 continue
             sti = ROD / m["fil"]
             if sti.exists():
-                ud.append(sti)
+                ud.append((kamp.get("tidspunkt") or kamp["dato"], sti))
     return ud
 
 
@@ -186,8 +192,46 @@ def opstilling_per_runde(
 
 
 # --------------------------------------------------------------------------
-# Klynge på tværs af alle hentede demoer for holdet
+# Klynge på tværs af alle hentede demoer for holdet -- MED tolerance
 # --------------------------------------------------------------------------
+
+# Højeste tilladte symmetriske forskel mellem to callout-mængder, før de
+# stadig tæller som "samme opstilling". 2 = tolerer at ÉN spiller står et
+# andet sted (fjern ét callout, tilføj ét andet = symmetrisk forskel på 2).
+# Ikke kalibreret per hold (jf. CLAUDE.md's ønske om det for mønster-
+# tærskler) -- en fast værdi, dokumenteret som en åben forbedring.
+MAKS_SYMMETRISK_FORSKEL = 2
+
+
+def _symmetrisk_forskel(a: frozenset[str], b: frozenset[str]) -> int:
+    return len(a - b) + len(b - a)
+
+
+def _klyng(forekomster: list[tuple[frozenset[str], str]]) -> list[dict]:
+    """Grupperer opstillinger der er højst MAKS_SYMMETRISK_FORSKEL fra
+    hinanden, i stedet for at kræve et 100% identisk match (se modulets
+    docstring for hvorfor). Grådig, kronologisk: hver forekomst lægges i
+    den bedst-matchende EKSISTERENDE klynge (målt mod klyngens første
+    medlem), ellers starter den sin egen. Forekomster skal være sorteret
+    kronologisk af kalderen, så resultatet er deterministisk.
+
+    Rangeringen for VISNING bruger den hyppigst forekomne PRÆCISE
+    callout-mængde i klyngen som repræsentant -- ikke det første medlem --
+    så en rapport viser den mest typiske udgave af opstillingen."""
+    klynger: list[dict] = []
+    for pladser, kontekst in forekomster:
+        bedste = None
+        bedste_afstand = MAKS_SYMMETRISK_FORSKEL + 1
+        for k in klynger:
+            d = _symmetrisk_forskel(pladser, k["anker"])
+            if d <= MAKS_SYMMETRISK_FORSKEL and d < bedste_afstand:
+                bedste, bedste_afstand = k, d
+        if bedste is None:
+            bedste = {"anker": pladser, "medlemmer": []}
+            klynger.append(bedste)
+        bedste["medlemmer"].append((pladser, kontekst))
+    return klynger
+
 
 def kør_for_hold_map(hold_navn: str, map_navn: str, side: str, sekunder: int) -> list[dict]:
     """Klynger opstillinger på tværs af ALLE hentede + parsede demoer for
@@ -203,12 +247,10 @@ def kør_for_hold_map(hold_navn: str, map_navn: str, side: str, sekunder: int) -
         print(f"Ingen hentede demoer for {hold_navn} på {map_navn} "
               f"(mangler i manifest, eller .dem ikke hentet endnu)")
         return []
+    dem_stier.sort(key=lambda t: t[0])  # kronologisk, jf. _klyng()'s docstring
 
-    taeller: Counter[frozenset[str]] = Counter()
-    kontekst_taeller: dict[frozenset[str], Counter[str]] = {}
-    total_runder = 0
-
-    for dem_sti in dem_stier:
+    forekomster: list[tuple[frozenset[str], str]] = []
+    for _tidspunkt, dem_sti in dem_stier:
         try:
             tabeller = parse_og_cache(dem_sti)
         except Exception as e:  # noqa: BLE001 -- én ødelagt/manglende demo skal ikke vælte resten
@@ -216,33 +258,58 @@ def kør_for_hold_map(hold_navn: str, map_navn: str, side: str, sekunder: int) -
             continue
 
         opstillinger = opstilling_per_runde(tabeller["rounds"], tabeller["ticks"], roster, side, sekunder)
-        for pladser, kontekst in opstillinger.values():
-            taeller[pladser] += 1
-            kontekst_taeller.setdefault(pladser, Counter())[kontekst] += 1
-            total_runder += 1
+        for round_num in sorted(opstillinger):
+            forekomster.append(opstillinger[round_num])
 
+    total_runder = len(forekomster)
     if total_runder == 0:
         print(f"{hold_navn} på {map_navn} ({side.upper()}): ingen runder matchede roster+side "
               f"({len(dem_stier)} demo(er) forsøgt)")
         return []
 
+    klynger = [k for k in _klyng(forekomster) if len(k["medlemmer"]) >= MIN_FOREKOMSTER]
+    klynger.sort(key=lambda k: len(k["medlemmer"]), reverse=True)
+
     ud = []
-    rang = 0
-    for pladser, antal in taeller.most_common():
-        if antal < MIN_FOREKOMSTER:
-            continue
-        rang += 1
+    for rang, k in enumerate(klynger, start=1):
+        pladser_taeller = Counter(p for p, _ in k["medlemmer"])
+        repraesentant = pladser_taeller.most_common(1)[0][0]
+        kontekst_taeller = Counter(kt for _, kt in k["medlemmer"])
+        antal = len(k["medlemmer"])
         ud.append(
             {
                 "navn": f"{side.upper()}-setup nr. {rang}",
-                "pladser": sorted(pladser),
+                "pladser": sorted(repraesentant),
                 "antal": antal,
                 "total_runder": total_runder,
                 "andel": antal / total_runder,
-                "kontekst": dict(kontekst_taeller[pladser]),
+                "kontekst": dict(kontekst_taeller),
             }
         )
     return ud
+
+
+# --------------------------------------------------------------------------
+# Åbne punkter -- kendte begrænsninger, ikke skjult
+# --------------------------------------------------------------------------
+#
+# - MAKS_SYMMETRISK_FORSKEL=2 er en fast værdi, ikke kalibreret per hold.
+#   CLAUDE.md's princip for mønster-tærskler er at kalibrere ved at køre
+#   samme søgning på bevidst blandet data og hæve kravet, til støjen er
+#   nede omkring et par fund (se analyse/terskler.py). Det er ikke gjort
+#   her endnu -- en tolerance på 2 kan vise sig for løs eller for stram,
+#   afhængigt af hvor mange forskellige callouts et map har.
+# - Klyngens "anker" er det FØRSTE medlem, kronologisk -- ikke et rigtigt
+#   centroid. To forekomster kan begge ligge indenfor tolerance af det
+#   samme anker uden at ligge indenfor tolerance af HINANDEN. For en
+#   rapport, der skal vise "hvad opstillingen typisk er", er det
+#   acceptabelt (repræsentanten for visning er den hyppigste PRÆCISE
+#   variant i klyngen, ikke ankeret) -- men det er ikke en garanteret
+#   optimal klyngning.
+# - Stadig ingen per-spiller tracking (se modulets docstring) -- en
+#   opstilling er formen, ikke hvem der står hvor.
+# - Ingen bekræftet/sandsynligt/svagt-inddeling som analyse/terskler.py's
+#   mønstre. En opstilling over MIN_FOREKOMSTER vises, uden holdout-test.
 
 
 def main() -> int:
