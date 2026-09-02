@@ -28,7 +28,11 @@ TICKRATE = 64
 def snapshots_fra_demo(sti: Path, holdnavn: str, side: str, sekunder: int) -> pl.DataFrame:
     """Parser en demo og returnerer spillerpositioner N sekunder inde i hver runde."""
     dem = Demo(sti, tickrate=TICKRATE)
-    dem.parse()
+    # awpy 2.0.2 omdoeber "team_name" til "side" (kun t/ct) internt -- det
+    # rigtige holdnavn ("MASQ" osv.) skal bedes om eksplicit som
+    # "team_clan_name", ellers findes det slet ikke som kolonne i dem.ticks.
+    # Verificeret mod en rigtig demo 2026-09-02.
+    dem.parse(player_props=["team_clan_name"])
 
     kort = dem.header.get("map_name", "ukendt")
     offset = sekunder * TICKRATE
@@ -48,7 +52,7 @@ def snapshots_fra_demo(sti: Path, holdnavn: str, side: str, sekunder: int) -> pl
     for r in maal.iter_rows(named=True):
         frame = dem.ticks.filter(
             (pl.col("tick") == r["snapshot_tick"])
-            & (pl.col("team_name") == holdnavn)
+            & (pl.col("team_clan_name") == holdnavn)
             & (pl.col("side") == side)
             & (pl.col("health") > 0)          # doede spillere staar ikke i default
         )
@@ -102,12 +106,13 @@ def main() -> None:
     print(f"\n{df.height} spiller-snapshots fra {len(demoer)} demoer paa {kort_navne}")
 
     # --- Det vigtigste output: hvor staar de, i callouts ---
-    # last_place_name er gratis og kraever ingen clustering. Start her.
+    # Kolonnen hedder "place", ikke "last_place_name" -- awpy 2.0.2 omdoeber
+    # den til det korte navn internt. Gratis og kraever ingen clustering.
     runder = df.select("kamp", "round_num").unique().height
     print(f"\nHyppigste positioner {args.sekunder}s inde i runden "
           f"({runder} runder, {args.side.upper()}-side):\n")
 
-    taeller = Counter(df["last_place_name"].drop_nulls().to_list())
+    taeller = Counter(df["place"].drop_nulls().to_list())
     for sted, antal in taeller.most_common(15):
         pct = 100 * antal / runder
         bar = "#" * int(pct / 4)

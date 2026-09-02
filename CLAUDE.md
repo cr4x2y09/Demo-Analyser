@@ -34,6 +34,10 @@ Cloudflare Tunnel ud på nettet — ingen porte åbnet i routeren. Cloudflare Ac
 som login foran hele siden (gratis op til 50 brugere), så Streamlit/app-laget
 ikke selv skal håndtere brugere. Domæne er købt.
 
+**Note til når Ubuntu Server-maskinen sættes op:** skal kunne fjernstyres —
+husk SSH (evt. nøglebaseret) fra starten af installationen, så den ikke skal
+stå fysisk tilsluttet skærm/tastatur bagefter.
+
 ---
 
 ## Downloaderen — teknisk kortlagt

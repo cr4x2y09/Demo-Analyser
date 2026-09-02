@@ -96,35 +96,100 @@ def downsample_ticks(ticks: pl.DataFrame, tickrate: int = TICKRATE, target_hz: i
 # Etage-split (Nuke, Vertigo)
 # --------------------------------------------------------------------------
 
+def _vaegtet_kmeans(z_vaerdier: list[float], vaegte: list[int], k: int) -> list[float]:
+    """1D k-means, vægtet efter hvor mange ticks der ligger på hver Z-værdi.
+
+    Startpunkter sættes ved de vægtede (i+0,5)/k-percentiler i stedet for
+    tilfældigt/min-maks, så resultatet er deterministist og ikke i sig selv
+    trukket af yderpunkter. Returnerer centroiderne sorteret stigende."""
+    def vaegtet_percentil(p: float) -> float:
+        maal = sum(vaegte) * p
+        akkumuleret = 0
+        for z, v in zip(z_vaerdier, vaegte):
+            akkumuleret += v
+            if akkumuleret >= maal:
+                return z
+        return z_vaerdier[-1]
+
+    centroider = [vaegtet_percentil((i + 0.5) / k) for i in range(k)]
+
+    for _ in range(100):  # konvergerer i praksis på et par iterationer
+        summer = [0.0] * k
+        vaegtsummer = [0] * k
+        for z, v in zip(z_vaerdier, vaegte):
+            i = min(range(k), key=lambda j: abs(z - centroider[j]))
+            summer[i] += z * v
+            vaegtsummer[i] += v
+        nye = [summer[i] / vaegtsummer[i] if vaegtsummer[i] else centroider[i] for i in range(k)]
+        if all(abs(nye[i] - centroider[i]) < 1e-6 for i in range(k)):
+            centroider = nye
+            break
+        centroider = nye
+
+    return sorted(centroider)
+
+
+def _z_graense_ved_klynger(z_vaerdier: list[float], vaegte: list[int]) -> float:
+    """Finder Z-grænsen mellem "kælder" og "resten" via vægtet k-means.
+
+    FORKASTEDE tilgange, begge testet mod en rigtig Nuke-demo 2026-09-02:
+
+    1. "Største hul mellem to nabo-værdier i den sorterede, unikke
+       Z-liste". Fejlede totalt -- ramper og trapper betyder at spillere
+       reelt indtager næsten hver eneste Z-værdi imellem etagerne, så
+       listen er tæt pakket over det meste af banen. Det største hul endte
+       i stedet mellem en håndfuld isolerede Roof/Silo-positioner (helt
+       oppe på taget) og resten af banen samlet -- BombsiteA og BombsiteB
+       landede begge i "etage 0".
+
+    2. Vægtet k-means med k=2. Bedre, men Nuke viste sig at have TRE
+       højdebånd, ikke to: kælderen (BombsiteB/Tunnels/Decon, Z ca. -775
+       til -520), hovedplanet (BombsiteA/Outside/T-spawn/CT-spawn m.fl.,
+       Z ca. -415 til -360) og tag/stillads (Heaven/Silo/Roof/Catwalk,
+       Z ca. -155 til -130). k=2 fandt det skarpeste todeling af DATAEN,
+       men det var "tag" vs. "kælder + hovedplan" -- BombsiteA endte
+       forkert i samme gruppe som BombsiteB.
+
+    Løsning: klyng i k=3, og sæt grænsen mellem den LAVESTE klynge
+    (kælderen) og de to andre (som begge tæller som "etage 1" -- både
+    hovedplan og tag skal vises sammen med A-site på radaren). Generaliserer
+    bedre end en hardkodet callout-liste, fordi forbindelsesgange som Ramp,
+    Secret og Vents rent faktisk strækker sig over begge etager -- de SKAL
+    splitte tick for tick, ikke slås fast som "hele rummet er én etage".
+
+    Verificeret mod samme Nuke-demo: BombsiteA 100% etage 1, BombsiteB
+    99,96% etage 0, Tunnels/Decon/Observation 100% etage 0. Ramp, Secret og
+    Vents splitter naturligt mellem begge etager, hvilket matcher at de er
+    kendte forbindelsesgange på kortet.
+    IKKE testet mod Vertigo -- samme metode burde virke (også opdelt i
+    kælder/hovedplan uden mellemliggende spilbart rum), men det er ikke
+    bekræftet. Kør denne funktion mod en rigtig Vertigo-demo og tjek
+    samme måde, før den bruges i en rapport.
+    """
+    centroider = _vaegtet_kmeans(z_vaerdier, vaegte, k=3)
+    return (centroider[0] + centroider[1]) / 2
+
+
 def tilfoej_etage(ticks: pl.DataFrame, map_navn: str) -> pl.DataFrame:
     """Tilføjer en "etage"-kolonne (0/1) for maps med to niveauer.
 
     Ikke en hårdkodet Z-grænse -- CLAUDE.md giver ingen konkrete tal, og der
     er ingen garanti for at samme grænse gælder på tværs af rundetyper eller
-    engine-opdateringer. I stedet: sortér de observerede Z-værdier og find
-    det STØRSTE hul mellem to nabo-værdier. Det hul er per definition
-    skellet mellem "de der står nede" og "de der står oppe", fordi der
-    ikke er noget spilbart rum midt i en etageadskillelse.
-
-    Skal verificeres mod en rigtig Nuke- eller Vertigo-demo, før den bruges
-    til noget: tjek at spillere kendt for at stå i kælderen/Secret rent
-    faktisk lander i etage 0, og A-site/Heaven-spillere i etage 1.
+    engine-opdateringer. Se _z_graense_ved_klynger() for metoden og hvorfor
+    de simplere udgaver blev forkastet.
     """
     if map_navn not in TO_ETAGER:
         return ticks.with_columns(pl.lit(0).alias("etage"))
 
-    z_vaerdier = ticks.select("Z").drop_nulls().unique().sort("Z")["Z"].to_list()
-    if len(z_vaerdier) < 2:
+    fordeling = (
+        ticks.select("Z").drop_nulls()
+        .group_by("Z").agg(pl.len().alias("n"))
+        .sort("Z")
+    )
+    if fordeling.height < 2:
         return ticks.with_columns(pl.lit(0).alias("etage"))
 
-    stoerste_hul = 0.0
-    graense = z_vaerdier[0]
-    for a, b in zip(z_vaerdier, z_vaerdier[1:]):
-        hul = b - a
-        if hul > stoerste_hul:
-            stoerste_hul = hul
-            graense = (a + b) / 2
-
+    graense = _z_graense_ved_klynger(fordeling["Z"].to_list(), fordeling["n"].to_list())
     return ticks.with_columns((pl.col("Z") > graense).cast(pl.Int8).alias("etage"))
 
 
