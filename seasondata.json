@@ -1,0 +1,3182 @@
+[
+  {
+    "name": "33",
+    "data": [],
+    "stages": {
+      "qualifier": {
+        "slug": "kvalifikation",
+        "name": "Kvalifikation",
+        "namePlural": "Kvalifikationer",
+        "brackets": [
+          {
+            "name": "Kvalifikation 1",
+            "seasonUrl": "POWERLigaenS33_Qual1"
+          },
+          {
+            "name": "Kvalifikation 2",
+            "seasonUrl": "POWERLigaenS33_Qual2"
+          },
+          {
+            "name": "Kvalifikation 3",
+            "seasonUrl": "POWERLigaenS33_Qual3"
+          },
+          {
+            "name": "Kvalifikation 4",
+            "seasonUrl": "POWERLigaenS33_Qual4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "32",
+    "stages": {
+      "qualifier": {
+        "slug": "kvalifikation",
+        "name": "Kvalifikation",
+        "namePlural": "Kvalifikationer",
+        "brackets": [
+          {
+            "name": "Kvalifikation 1",
+            "seasonUrl": "POWERLigaenS32_Qual1"
+          },
+          {
+            "name": "Kvalifikation 2",
+            "seasonUrl": "POWERLigaenS32_Qual2"
+          },
+          {
+            "name": "Kvalifikation 3",
+            "seasonUrl": "POWERLigaenS32_Qual3"
+          },
+          {
+            "name": "Kvalifikation 4",
+            "seasonUrl": "POWERLigaenS32_Qual4"
+          }
+        ]
+      },
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "POWER Ligaen Slutspil",
+              "seasonUrl": "POWERLigaenS32_playoff"
+            },
+            {
+              "name": "CEPTER Divisionerne",
+              "seasonUrl": "POWERLigaenS32_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS32",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "fullWidthOnStanding": true,
+        "swiss": true,
+        "colors": {}
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS32_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "31",
+    "stages": {
+      "qualifier": {
+        "slug": "kvalifikation",
+        "name": "Kvalifikation",
+        "namePlural": "Kvalifikationer",
+        "brackets": [
+          {
+            "name": "Kvalifikation 1",
+            "seasonUrl": "2365454313779652607"
+          },
+          {
+            "name": "Kvalifikation 2",
+            "seasonUrl": "2383405139121788927"
+          },
+          {
+            "name": "Kvalifikation 3",
+            "seasonUrl": "2384252146416474111"
+          },
+          {
+            "name": "Kvalifikation 4",
+            "seasonUrl": "2384252937705334783"
+          }
+        ]
+      },
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "POWER Ligaen Slutspil",
+              "seasonUrl": "POWERLigaenS31_Playoff"
+            },
+            {
+              "name": "CEPTER Divisionerne",
+              "seasonUrl": "POWERLigaenS31_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS31",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "fullWidthOnStanding": true,
+        "swiss": true,
+        "colors": {}
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS31_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "30",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS30_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS30",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS30_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "29",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS29_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS29",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS29_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "28",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS28_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS28",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk",
+          "8": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS28_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "27",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS27_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS27",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS27_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "26",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS26_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS26",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS26_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "25",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS25_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS25",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS25_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "24",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS24_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS24",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_5divA",
+        "name": "CEPTER 5. Division A",
+        "group": "5. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS24_5divB",
+        "name": "CEPTER 5. Division B",
+        "group": "5. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "23",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS23_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS23",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_5divA",
+        "name": "CEPTER 5. Division A",
+        "group": "5. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS23_5divB",
+        "name": "CEPTER 5. Division B",
+        "group": "5. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "22",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS22_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS22",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "6": "releg2",
+          "7": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_5divA",
+        "name": "CEPTER 5. Division A",
+        "group": "5. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS22_5divB",
+        "name": "CEPTER 5. Division B",
+        "group": "5. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1",
+          "4": "releg1",
+          "5": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "21",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS21_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS21",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "4": "playoff",
+          "5": "playoff",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS21_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg1",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      }
+    ]
+  },
+  {
+    "name": "20",
+    "stages": {
+      "playoffs": [
+        {
+          "slug": "slutspil",
+          "name": "Play-off/Relegation",
+          "kind": "playoff",
+          "brackets": [
+            {
+              "name": "Slutspil & Nedrykning",
+              "seasonUrl": "POWERLigaenS20_Relegation"
+            }
+          ]
+        }
+      ]
+    },
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS20",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "4": "playoff",
+          "5": "playoff",
+          "9": "releg2",
+          "10": "releg2",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS20_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "19",
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS19",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "4": "playoff",
+          "5": "playoff",
+          "9": "releg2",
+          "10": "releg2",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS19_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "18",
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS18",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "4": "playoff",
+          "5": "playoff",
+          "9": "releg2",
+          "10": "releg2",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_1div",
+        "name": "CEPTER 1. Division",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "8": "releg2",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS18_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "17",
+    "data": [
+      {
+        "seasonUrl": "POWERLigaenS17",
+        "name": "POWER Ligaen",
+        "group": "Ligaen",
+        "colors": {
+          "0": "playoff",
+          "1": "playoff",
+          "2": "playoff",
+          "3": "playoff",
+          "4": "playoff",
+          "5": "playoff",
+          "9": "releg2",
+          "10": "nedryk",
+          "11": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_1divA",
+        "name": "CEPTER 1. Division A",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg2",
+          "4": "releg2",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "nedryk",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_1divB",
+        "name": "CEPTER 1. Division B",
+        "group": "1. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "4": "releg2",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "releg2",
+          "8": "nedryk",
+          "9": "nedryk",
+          "10": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "4": "releg3",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "nedryk",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "2": "releg1",
+          "4": "releg3",
+          "5": "releg2",
+          "6": "releg2",
+          "7": "nedryk",
+          "8": "nedryk",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_3divC",
+        "name": "CEPTER 3. Division C",
+        "group": "3. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_3divD",
+        "name": "CEPTER 3. Division D",
+        "group": "3. Division",
+        "colors": {
+          "0": "releg1",
+          "1": "releg1",
+          "7": "releg2",
+          "8": "releg2",
+          "9": "nedryk"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_4divC",
+        "name": "CEPTER 4. Division C",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      },
+      {
+        "seasonUrl": "POWERLigaenS17_4divD",
+        "name": "CEPTER 4. Division D",
+        "group": "4. Division",
+        "colors": {
+          "0": "playoff",
+          "1": "releg1",
+          "2": "releg1",
+          "3": "releg1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "16",
+    "data": [
+      {
+        "seasonUrl": "ElgigantenLigaenS16",
+        "name": "POWER Ligaen",
+        "group": "Ligaen"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS16_1divA",
+        "name": "CEPTER 1. Division A",
+        "group": "1. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS16_1divB",
+        "name": "CEPTER 1. Division B",
+        "group": "1. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS16_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS16_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS16_3divA",
+        "name": "CEPTER 3. Division A",
+        "group": "3. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS16_3divB",
+        "name": "CEPTER 3. Division B",
+        "group": "3. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS16_4divA",
+        "name": "CEPTER 4. Division A",
+        "group": "4. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS16_4divB",
+        "name": "CEPTER 4. Division B",
+        "group": "4. Division"
+      }
+    ]
+  },
+  {
+    "name": "15",
+    "data": [
+      {
+        "seasonUrl": "ElgigantenLigaenS15",
+        "name": "POWER Ligaen",
+        "group": "Ligaen"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS15_1divA",
+        "name": "CEPTER 1. Division A",
+        "group": "1. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS15_1divB",
+        "name": "CEPTER 1. Division B",
+        "group": "1. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS15_2divA",
+        "name": "CEPTER 2. Division A",
+        "group": "2. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS15_2divB",
+        "name": "CEPTER 2. Division B",
+        "group": "2. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS15_2divC",
+        "name": "CEPTER 2. Division C",
+        "group": "2. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS15_2divD",
+        "name": "CEPTER 2. Division D",
+        "group": "2. Division"
+      }
+    ]
+  },
+  {
+    "name": "14",
+    "data": [
+      {
+        "seasonUrl": "ElgigantenLigaenS14",
+        "name": "POWER Ligaen",
+        "group": "Ligaen"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS14_1divX",
+        "name": "CEPTER 1. Division X",
+        "group": "1. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS14_1divY",
+        "name": "CEPTER 1. Division Y",
+        "group": "1. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS14_2divX",
+        "name": "CEPTER 2. Division X",
+        "group": "2. Division"
+      },
+      {
+        "seasonUrl": "ElgigantenLigaenS14_2divY",
+        "name": "CEPTER 2. Division Y",
+        "group": "2. Division"
+      }
+    ]
+  }
+]
