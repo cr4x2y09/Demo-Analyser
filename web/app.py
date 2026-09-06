@@ -20,12 +20,14 @@ Kør (fra projektroden):
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from dataclasses import dataclass
 from datetime import date, datetime
 from pathlib import Path
 
+import requests
 import streamlit as st
 
 ROD = Path(__file__).resolve().parent.parent
@@ -456,6 +458,34 @@ def hold_slug_web(navn: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", navn.lower()).strip("-") or "hold"
 
 
+# --------------------------------------------------------------------------
+# Feedback -- samme Discord-webhook-mønster som overvaagning.py
+# --------------------------------------------------------------------------
+
+# Egen webhook til feedback, så det ikke drukner i job-fejl-alarmer i
+# samme kanal -- falder tilbage til DISCORD_WEBHOOK (overvaagning.py's
+# variabel) hvis der ikke er sat en separat, så det virker uden ekstra
+# opsætning.
+FEEDBACK_WEBHOOK = os.environ.get("DISCORD_WEBHOOK_FEEDBACK") or os.environ.get("DISCORD_WEBHOOK", "")
+
+
+def send_feedback(tekst: str, kontekst: str) -> tuple[bool, str]:
+    """Sender feedback til Discord. Returnerer (lykkedes, besked-til-bruger)."""
+    if not FEEDBACK_WEBHOOK:
+        return False, "Ingen webhook konfigureret (sæt DISCORD_WEBHOOK som miljøvariabel på serveren)."
+    besked = (
+        f"**Ny feedback** ({datetime.now().strftime('%d.%m.%Y %H:%M')})\n"
+        f"_{kontekst}_\n"
+        f"```\n{tekst.strip()[:1800]}\n```"
+    )
+    try:
+        r = requests.post(FEEDBACK_WEBHOOK, json={"content": besked}, timeout=10)
+        r.raise_for_status()
+    except Exception as e:  # noqa: BLE001 -- vis en pæn fejl i UI'et, ikke en traceback
+        return False, f"Kunne ikke sende feedback: {e}"
+    return True, "Sendt, tak!"
+
+
 def main() -> None:
     st.set_page_config(page_title="Modstanderrapport", layout="wide")
     if CSS_STI.exists():
@@ -500,6 +530,12 @@ def main() -> None:
         [data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:1.05rem}
         [data-testid="stSidebar"] [data-testid="stCaptionContainer"]{color:var(--dim)}
         [data-testid="stSidebar"] hr{border-color:var(--rule)}
+        /* feedback-boks: samme mørke kort-stil som resten af sidebaren */
+        [data-testid="stSidebar"] [data-testid="stExpander"]{background:var(--bg);border:1px solid var(--rule);border-radius:2px}
+        [data-testid="stSidebar"] [data-testid="stExpander"] summary{font-family:'JetBrains Mono',monospace!important;font-size:11px!important;letter-spacing:.14em!important;text-transform:uppercase;color:var(--dim)!important}
+        [data-testid="stSidebar"] [data-testid="stExpander"] textarea{background:var(--panel)!important;border-color:var(--rule)!important;color:var(--tx)!important;font-family:Archivo,system-ui,sans-serif!important}
+        [data-testid="stSidebar"] [data-testid="stExpander"] button{background:transparent!important;color:var(--hot)!important;border:1px solid var(--hot)!important;border-radius:2px!important;font-family:'JetBrains Mono',monospace!important;font-size:11.5px!important;letter-spacing:.06em!important;text-transform:uppercase!important}
+        [data-testid="stSidebar"] [data-testid="stExpander"] button:hover{background:var(--hot)!important;color:#171112!important}
         /* download-knap: matcher rapportens outline-stil i stedet for Streamlits standardknap */
         .stDownloadButton button{background:transparent!important;color:var(--hot)!important;border:1px solid var(--hot)!important;border-radius:2px!important;font-family:'JetBrains Mono',monospace!important;font-size:12px!important;font-weight:600!important;letter-spacing:.08em!important;text-transform:uppercase!important}
         .stDownloadButton button:hover{background:var(--hot)!important;color:#171112!important}
@@ -532,6 +568,21 @@ def main() -> None:
         map_navn = st.selectbox("Map", maps)
 
         st.caption(f"Genereret {datetime.now().strftime('%d.%m.%Y %H:%M')}")
+
+        with st.expander("Feedback"):
+            feedback_tekst = st.text_area(
+                "Feedback",
+                key="feedback_tekst",
+                placeholder="Fejl, ønsker, eller noget der ser forkert ud...",
+                label_visibility="collapsed",
+            )
+            if st.button("Send", key="feedback_send", use_container_width=True):
+                if not feedback_tekst.strip():
+                    st.warning("Skriv noget først.")
+                else:
+                    kontekst = f"{hold} / {map_navn.capitalize()} ({liga})"
+                    ok, besked = send_feedback(feedback_tekst, kontekst)
+                    (st.success if ok else st.error)(besked)
 
     veto = laes_veto()
     vis_rapport(kampe, veto, liga, hold, map_navn)
