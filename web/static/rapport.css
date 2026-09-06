@@ -41,18 +41,27 @@ b{font-weight:600}
 }
 
 /* sections */
-section{
-  margin:44px 0 0;background:var(--panel);border:1px solid var(--rule);
-  border-radius:10px;padding:34px 38px 38px;
+/* Scopet til ".wrap section", ALDRIG bare "section" -- Streamlit bruger
+   selv et <section class="stMain"> til at ombryde hele appen, og et bart
+   "section"-selector rammer også DET (hele siden fik panel-baggrund,
+   box-shadow og en meterlang accentstribe ned gennem det hele). */
+.wrap section{
+  position:relative;margin:36px 0 0;background:var(--panel);
+  border:1px solid var(--rule);border-radius:12px;padding:36px 40px 40px;
+  box-shadow:0 1px 2px rgba(0,0,0,.35),0 12px 28px -18px rgba(0,0,0,.55);
 }
-section:first-of-type{margin-top:0}
+.wrap section:before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  border-radius:12px 0 0 12px;background:var(--hot);opacity:.85;
+}
+.wrap section:first-of-type{margin-top:0}
 h2{
-  font-size:15px;font-weight:700;letter-spacing:.02em;margin:0 0 4px;
+  font-size:14px;font-weight:800;letter-spacing:.08em;margin:0 0 6px;
   color:var(--hot);text-transform:uppercase;
 }
 .lede{margin:0 0 26px;color:var(--mid);font-size:15.5px;max-width:62ch;
   padding-bottom:16px;border-bottom:1px solid var(--rule-2)}
-@media(max-width:620px){section{padding:26px 22px 30px;border-radius:8px}}
+@media(max-width:620px){.wrap section{padding:26px 22px 30px 28px;border-radius:8px}}
 
 /* overview map + pins */
 .mapline{display:flex;gap:26px;align-items:center;margin:0 0 28px;flex-wrap:wrap}
@@ -133,11 +142,13 @@ h2{
 .setup h3{margin:0;font-size:20px;font-weight:600;letter-spacing:-.012em}
 .setup .pct{font-size:26px;font-weight:700;color:var(--hot);letter-spacing:-.02em;white-space:nowrap}
 .setup .pct small{font-size:13.5px;font-weight:500;color:var(--dim)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 0}
 .chip{
   background:var(--bg);border:1px solid var(--rule-2);border-radius:20px;
-  padding:6px 15px;font-size:13.5px;font-weight:500;color:var(--tx);
+  padding:6px 15px 6px 12px;font-size:13.5px;font-weight:500;color:var(--tx);
+  display:inline-flex;align-items:center;gap:8px;
 }
+.chip:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--hot);flex:0 0 auto}
 .setup .ctx{margin:16px 0 0;font-size:13px;color:var(--dim)}
 .setup .ctx b{color:var(--mid);font-weight:600}
 

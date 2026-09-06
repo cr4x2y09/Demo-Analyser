@@ -490,11 +490,16 @@ def main() -> None:
         [data-testid="stSidebar"] label p{font-size:12.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--dim)}
         [data-testid="stSidebar"] [data-baseweb="select"] > div{background:var(--bg)!important;border-color:var(--rule)!important;border-radius:2px!important}
         [data-testid="stSidebar"] [data-baseweb="select"]:hover > div{border-color:var(--hot)!important}
+        [data-testid="stSidebar"] [data-baseweb="select"] > div:focus-within{box-shadow:0 0 0 1px var(--hot)!important}
+        [data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:1.05rem}
         [data-testid="stSidebar"] [data-testid="stCaptionContainer"]{color:var(--dim)}
         [data-testid="stSidebar"] hr{border-color:var(--rule)}
         /* download-knap: matcher rapportens outline-stil i stedet for Streamlits standardknap */
         .stDownloadButton button{background:transparent!important;color:var(--hot)!important;border:1px solid var(--hot)!important;border-radius:2px!important;font-weight:600!important}
         .stDownloadButton button:hover{background:var(--hot)!important;color:#171112!important}
+        /* sidebar-brand: giver siden en identitet i stedet for at hoppe direkte til widgets */
+        .brand{font-size:19px;font-weight:800;letter-spacing:-.015em;color:var(--tx);margin:2px 0 26px;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+        .brand em{font-style:normal;color:var(--hot)}
         </style>""",
         unsafe_allow_html=True,
     )
@@ -502,6 +507,7 @@ def main() -> None:
     kampe = laes_manifest()
 
     with st.sidebar:
+        st.markdown('<div class="brand">Modstander<em>rapport</em></div>', unsafe_allow_html=True)
         st.markdown("### Vælg modstander")
         if not kampe:
             st.warning("Intet manifest fundet endnu (manifest.jsonl). Kør downloaderen først:\n\n`python downloader/hent_demoer.py`")
