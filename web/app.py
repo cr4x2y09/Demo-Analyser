@@ -278,7 +278,7 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
         """
     ]
 
-    dele.append('<section><h2>Fundne kampe</h2>')
+    dele.append('<section><h2><span class="eyebrow">[ 01 ]</span> Fundne kampe</h2>')
     if kampe:
         rows = "".join(
             f"<tr><td class='big'>{esc(k.dato)}</td>"
@@ -296,7 +296,7 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
         dele.append('<p class="lede">Ingen kampe fundet.</p>')
     dele.append("</section>")
 
-    dele.append('<section><h2>Veto</h2>')
+    dele.append('<section><h2><span class="eyebrow">[ 02 ]</span> Veto</h2>')
     opsum = veto_opsummering(veto_alle, hold)
     if opsum["kampe_total"]:
         dele.append(f'<p class="lede">Fra {opsum["kampe_total"]} kampe. Kræver ingen demoer.</p>')
@@ -319,7 +319,7 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
         dele.append('<p class="lede">Ingen veto-data fundet for dette hold endnu.</p>')
     dele.append("</section>")
 
-    dele.append('<section><h2>Grundopstilling</h2>')
+    dele.append('<section><h2><span class="eyebrow">[ 03 ]</span> Grundopstilling</h2>')
     dele.append(
         '<p class="lede">Opstillinger klynges efter hvilke callouts holdets nuværende '
         "roster (SteamID64-filtreret) står i 20 sekunder inde i runden. Kræver mindst "
@@ -356,7 +356,7 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
         )
     dele.append("</section>")
 
-    dele.append('<section><h2>Mønstre</h2>')
+    dele.append('<section><h2><span class="eyebrow">[ 04 ]</span> Mønstre</h2>')
     dele.append(
         '<p class="lede">Fra runde-udfald (score, pistol, momentum) -- endnu ikke fra '
         "spillerpositioner eller utility, det kræver parseren. Se analyse/moenstre_runder.py.</p>"
@@ -386,7 +386,7 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
         dele.append('<div class="warn">Ingen fund over tærsklen for dette hold endnu.</div>')
     dele.append("</section>")
 
-    dele.append('<section><h2>Spillerne</h2>')
+    dele.append('<section><h2><span class="eyebrow">[ 05 ]</span> Spillerne</h2>')
     dele.append('<p class="lede">Rigtige skydetal fra kampstats.jsonl, roster-filtreret på SteamID64. Adfærdsdelen (rolle, positioner, afstand til holdkammerater) kræver parseren.</p>')
     profiler = spillerprofiler(hold)
     if profiler:
@@ -405,7 +405,7 @@ def byg_rapport_html(kampe_alle: list[KampEntry], veto_alle: list[VetoEntry], li
 
     dele.append(
         """<footer>
-        <h2>Om denne side</h2>
+        <h2><span class="eyebrow">[ i ]</span> Om denne side</h2>
         <p>Kamplisten ovenfor kommer direkte fra downloaderens manifest
         (<code>manifest.jsonl</code>), uden analyse. Veto, spillerstats,
         runde-mønstre og grundopstilling er analyseret -- se hver sektions
@@ -429,7 +429,7 @@ def byg_standalone_html(indhold: str, titel: str) -> str:
 <title>{esc(titel)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>{css}</style>
 </head>
 <body>
@@ -479,23 +479,29 @@ def main() -> None:
     # (resten af reglerne herunder anvendes jo).
     st.markdown(
         """<style>
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
         .wrap, .wrap *{font-family:Archivo,system-ui,sans-serif!important}
+        /* undtagelser fra tvangs-Archivo herover -- disse skal bruge mono (matcher cs2.cam's tekniske label-stil) */
+        .wrap .eyebrow, .wrap .tier, .wrap .scale, .wrap .pct, .wrap .meta span, .wrap .setup .ctx{
+          font-family:'JetBrains Mono',ui-monospace,monospace!important;
+        }
         header[data-testid="stHeader"]{display:none}
         .block-container{padding-top:2.5rem;padding-bottom:3rem}
         /* sidebar: match rapportens mørke tema i stedet for Streamlits graa standard */
         [data-testid="stSidebar"]{background:var(--panel);border-right:1px solid var(--rule)}
         [data-testid="stSidebar"] > div{padding-top:1.5rem}
-        [data-testid="stSidebar"] h3{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--dim);margin:0 0 18px}
-        [data-testid="stSidebar"] label p{font-size:12.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--dim)}
+        [data-testid="stSidebar"] h3{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 20px}
+        [data-testid="stSidebar"] label p{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+        [data-testid="stSidebar"] [data-testid="stCaptionContainer"] p{font-family:'JetBrains Mono',monospace!important;font-size:10.5px!important;letter-spacing:.04em}
         [data-testid="stSidebar"] [data-baseweb="select"] > div{background:var(--bg)!important;border-color:var(--rule)!important;border-radius:2px!important}
+        [data-testid="stSidebar"] [data-baseweb="select"] *{font-family:Archivo,system-ui,sans-serif!important}
         [data-testid="stSidebar"] [data-baseweb="select"]:hover > div{border-color:var(--hot)!important}
         [data-testid="stSidebar"] [data-baseweb="select"] > div:focus-within{box-shadow:0 0 0 1px var(--hot)!important}
         [data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:1.05rem}
         [data-testid="stSidebar"] [data-testid="stCaptionContainer"]{color:var(--dim)}
         [data-testid="stSidebar"] hr{border-color:var(--rule)}
         /* download-knap: matcher rapportens outline-stil i stedet for Streamlits standardknap */
-        .stDownloadButton button{background:transparent!important;color:var(--hot)!important;border:1px solid var(--hot)!important;border-radius:2px!important;font-weight:600!important}
+        .stDownloadButton button{background:transparent!important;color:var(--hot)!important;border:1px solid var(--hot)!important;border-radius:2px!important;font-family:'JetBrains Mono',monospace!important;font-size:12px!important;font-weight:600!important;letter-spacing:.08em!important;text-transform:uppercase!important}
         .stDownloadButton button:hover{background:var(--hot)!important;color:#171112!important}
         /* sidebar-brand: giver siden en identitet i stedet for at hoppe direkte til widgets */
         .brand{font-size:19px;font-weight:800;letter-spacing:-.015em;color:var(--tx);margin:2px 0 26px;padding-bottom:18px;border-bottom:1px solid var(--rule)}
